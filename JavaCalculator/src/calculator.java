@@ -1,6 +1,9 @@
+package JavaCalculator.src;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
 
 public class calculator implements ActionListener{
     JFrame frame;
