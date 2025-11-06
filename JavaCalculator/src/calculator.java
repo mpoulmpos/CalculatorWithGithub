@@ -140,21 +140,24 @@ public class calculator implements ActionListener{
         }
         if(e.getSource() == equButton){
             num2 = Double.parseDouble(textField.getText());
+            Operation operation = null;
 
-            switch(operator){
+            switch (operator) {
                 case '+':
-                    result = num1 + num2;
+                    operation = new Add();
                     break;
-                    case '-':
-                        result = num1 - num2;
-                        break;
-                        case '*':
-                            result = num1 * num2;
-                            break;
-                            case '/':
-                                result = num1 / num2;
-                                break;
+                case '-':
+                    operation = new Subtract();
+                    break;
+                case '*':
+                    operation = new Multiply();
+                    break;
+                case '/':
+                    operation = new Divide();
+                    break;
             }
+
+            result = operation.execute(num1, num2);
             textField.setText(String.valueOf(result));
             num1=result;
         }
